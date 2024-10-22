@@ -49,7 +49,7 @@ class DevInfo(list_ports_common.ListPortInfo):
         return self.props["ugen"]
 
 def comports(include_links=False):
-    x = subprocess.run(["devinfo", "-rv"], capture_output=True)
+    x = subprocess.run(["/usr/sbin/devinfo", "-rv"], capture_output=True)
     seen = set()
     for line in x.stdout.decode('utf-8').split('\n'):
         if "ttyname" in line:
